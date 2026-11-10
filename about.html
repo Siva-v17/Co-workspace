@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About us — Stackly Cowork</title>
+<meta name="description" content="The story, values and team behind Stackly Cowork in Salem.">
+<link rel="icon" href="./stackly.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* ==========================================================
+       Stackly Cowork - about.html styles
+       class prefix: stackly-about-
+       ========================================================== */
+
+    :root{
+        --ink:#0f1226;
+        --ink2:#181c3a;
+        --indigo:#5b4dff;
+        --sky:#38d4ff;
+        --sun:#ffc24b;
+        --rose:#ff6b8b;
+        --mist:#f2f4ff;
+        --paper:#fff;
+        --text:#2a2e4a;
+        --muted:#6b7090;
+        --line:rgba(15,18,38,.12);
+        --r:22px;
+        --head:'Bricolage Grotesque',system-ui,sans-serif;
+        --body:'Figtree',system-ui,sans-serif;
+        --nav:86px;
+    }
+
+    *,
+    *::before,
+    *::after{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:var(--body);
+        color:var(--text);
+        background:var(--paper);
+        line-height:1.65;
+        font-size:1.05rem;
+        overflow-x:hidden;
+    }
+
+    img{
+        display:block;
+        max-width:100%;
+    }
+
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    button{
+        font:inherit;
+        color:inherit;
+    }
+
+    :focus-visible{
+        outline:3px solid var(--sky);
+        outline-offset:3px;
+        border-radius:6px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4{
+        font-family:var(--head);
+        color:var(--ink);
+        line-height:1.05;
+        letter-spacing:-.025em;
+    }
+
+    h1{
+        font-size:clamp(2.6rem,7.2vw,6.2rem);
+        font-weight:800;
+    }
+
+    h2{
+        font-size:clamp(2rem,4.6vw,3.8rem);
+        font-weight:700;
+    }
+
+    h3{
+        font-size:1.35rem;
+        font-weight:700;
+        letter-spacing:-.01em;
+    }
+
+    p.stackly-about-lead{
+        font-size:clamp(1.05rem,1.6vw,1.3rem);
+        color:var(--muted);
+        max-width:60ch;
+    }
+
+    .stackly-about-wrap{
+        width:min(1240px,92%);
+        margin-inline:auto;
+    }
+
+    .stackly-about-section{
+        padding:clamp(4.5rem,9vw,8rem) 0;
+        position:relative;
+    }
+
+    .stackly-about-section.stackly-about-mist{
+        background:var(--mist);
+    }
+
+    .stackly-about-section.stackly-about-dark{
+        background:var(--ink);
+        color:#c9cdf0;
+    }
+
+    .stackly-about-section.stackly-about-dark h1,
+    .stackly-about-section.stackly-about-dark h2,
+    .stackly-about-section.stackly-about-dark h3{
+        color:#fff;
+    }
+
+    .stackly-about-section.stackly-about-dark p.stackly-about-lead{
+        color:#a9aed6;
+    }
+
+    .stackly-about-section-head{
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-end;
+        gap:2rem;
+        flex-wrap:wrap;
+        margin-bottom:3.2rem;
+    }
+
+    .stackly-about-section-head h2{
+        max-width:16ch;
+    }
+
+    .stackly-about-tag{
+        display:inline-flex;
+        align-items:center;
+        gap:.5rem;
+        padding:.4rem .9rem;
+        border-radius:99px;
+        background:rgba(91,77,255,.1);
+        color:var(--indigo);
+        font-weight:600;
+        font-size:.9rem;
+        margin-bottom:1.2rem;
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-tag,
+    .stackly-about-hero .stackly-about-tag{
+        background:rgba(255,255,255,.1);
+        color:#d9dcff;
+    }
+
+    .stackly-about-tag i{
+        width:8px;
+        height:8px;
+        border-radius:50%;
+        background:var(--sun);
+        display:inline-block;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    .stackly-about-site-header{
+        position:fixed;
+        inset:0 0 auto 0;
+        height:var(--nav);
+        z-index:100;
+        display:flex;
+        align-items:center;
+        transition:background .4s,box-shadow .4s,transform .4s;
+    }
+
+    .stackly-about-site-header.stackly-about-is-solid{
+        background:rgba(15,18,38,.88);
+        backdrop-filter:blur(14px);
+        box-shadow:0 10px 40px rgba(0,0,0,.18);
+    }
+
+    .stackly-about-site-header .stackly-about-wrap{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:1.5rem;
+    }
+
+    .stackly-about-logo img{
+        height:70px;
+        width:auto;
+        object-fit:contain;
+    }
+
+    .stackly-about-main-nav{
+        display:flex;
+        align-items:center;
+        gap:2rem;
+    }
+
+    .stackly-about-main-nav a{
+        color:#e5e7ff;
+        font-weight:500;
+        position:relative;
+        padding:.3rem 0;
+    }
+
+    .stackly-about-main-nav a:not(.stackly-about-btn)::after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:-2px;
+        height:2px;
+        width:100%;
+        background:var(--sun);
+        transform:scaleX(0);
+        transform-origin:right;
+        transition:transform .35s;
+    }
+
+    .stackly-about-main-nav a:not(.stackly-about-btn):hover::after,
+    .stackly-about-main-nav a.stackly-about-is-active::after{
+        transform:scaleX(1);
+        transform-origin:left;
+    }
+
+    .stackly-about-burger{
+        display:none;
+        background:none;
+        border:0;
+        width:44px;
+        height:44px;
+        cursor:pointer;
+        position:relative;
+    }
+
+    .stackly-about-burger span{
+        position:absolute;
+        left:10px;
+        right:10px;
+        height:2px;
+        background:#fff;
+        transition:.3s;
+    }
+
+    .stackly-about-burger span:nth-child(1){
+        top:16px;
+    }
+
+    .stackly-about-burger span:nth-child(2){
+        top:27px;
+    }
+
+    .stackly-about-burger.stackly-about-is-open span:nth-child(1){
+        top:21px;
+        transform:rotate(45deg);
+    }
+
+    .stackly-about-burger.stackly-about-is-open span:nth-child(2){
+        top:21px;
+        transform:rotate(-45deg);
+    }
+
+    /* ---------- BUTTONS ---------- */
+
+    .stackly-about-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:.6rem;
+        padding:.95rem 1.7rem;
+        border-radius:99px;
+        border:0;
+        background:var(--sun);
+        color:var(--ink)!important;
+        font-weight:700;
+        cursor:pointer;
+        transition:transform .3s,box-shadow .3s;
+        position:relative;
+        overflow:hidden;
+        will-change:transform;
+    }
+
+    .stackly-about-btn:hover{
+        box-shadow:0 14px 34px rgba(255,194,75,.4);
+    }
+
+    .stackly-about-btn.stackly-about-small{
+        padding:.6rem 1.2rem;
+        font-size:.95rem;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .stackly-about-hero{
+        min-height:100svh;
+        background:var(--ink);
+        color:#fff;
+        position:relative;
+        display:flex;
+        align-items:center;
+        overflow:hidden;
+        padding:calc(var(--nav) + 3rem) 0 5rem;
+    }
+
+    .stackly-about-hero.stackly-about-short{
+        min-height:68svh;
+        padding-bottom:4rem;
+    }
+
+    .stackly-about-hero h1{
+        color:#fff;
+        max-width:14ch;
+    }
+
+    .stackly-about-hero.stackly-about-short h1{
+        font-size:clamp(2.4rem,6vw,5rem);
+    }
+
+    .stackly-about-hero p.stackly-about-lead{
+        color:#b8bde6;
+        margin:1.6rem 0 2.2rem;
+    }
+
+    .stackly-about-hero .stackly-about-wrap{
+        position:relative;
+        z-index:2;
+    }
+
+    .stackly-about-hero-grid{
+        display:grid;
+        grid-template-columns:1.15fr .85fr;
+        gap:3rem;
+        align-items:center;
+    }
+
+    .stackly-about-hero-media{
+        position:relative;
+        height:min(620px,70vh);
+    }
+
+    .stackly-about-hero-media .stackly-about-frame{
+        position:absolute;
+        box-shadow:0 30px 80px rgba(0,0,0,.45);
+    }
+
+    .stackly-about-hero-media .stackly-about-hero-main{
+        inset:0 18% 18% 0;
+    }
+
+    .stackly-about-hero-media .stackly-about-hero-inset{
+        width:46%;
+        height:42%;
+        right:0;
+        bottom:0;
+        border:6px solid var(--ink);
+    }
+
+    .stackly-about-chip{
+        position:absolute;
+        z-index:3;
+        background:#fff;
+        color:var(--ink);
+        padding:.7rem 1.1rem;
+        border-radius:16px;
+        font-weight:700;
+        font-size:.92rem;
+        box-shadow:0 16px 40px rgba(0,0,0,.3);
+        display:flex;
+        gap:.6rem;
+        align-items:center;
+    }
+
+    .stackly-about-chip b{
+        width:10px;
+        height:10px;
+        border-radius:50%;
+        background:#2ecc71;
+        box-shadow:0 0 0 6px rgba(46,204,113,.25);
+    }
+
+    .stackly-about-chip.stackly-about-chip-a{
+        left:-4%;
+        bottom:14%;
+    }
+
+    /* ---------- ANIMATED BACKGROUND (GSAP + WEBFLOW STYLE MESH) ---------- */
+
+    .stackly-about-blob{
+        position:absolute;
+        border-radius:50%;
+        filter:blur(90px);
+        opacity:.55;
+        will-change:transform;
+    }
+
+    .stackly-about-blob.stackly-about-blob-1{
+        width:520px;
+        height:520px;
+        background:var(--indigo);
+        top:-120px;
+        left:-100px;
+    }
+
+    .stackly-about-blob.stackly-about-blob-3{
+        width:380px;
+        height:380px;
+        background:var(--rose);
+        left:35%;
+        bottom:-160px;
+        opacity:.35;
+    }
+
+    /* ---------- SPLIT TEXT ---------- */
+
+    .stackly-about-statement{
+        font:700 clamp(1.8rem,4.2vw,3.4rem)/1.15 var(--head);
+        letter-spacing:-.02em;
+        color:var(--ink);
+        max-width:26ch;
+    }
+
+    /* ---------- MEDIA ---------- */
+
+    .stackly-about-frame{
+        position:relative;
+        overflow:hidden;
+        border-radius:var(--r);
+        background:linear-gradient(135deg,var(--ink2),var(--indigo));
+    }
+
+    .stackly-about-frame img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        transform:scale(1.18);
+        will-change:transform;
+    }
+
+    .stackly-about-frame.stackly-about-ratio-tall{
+        aspect-ratio:4/5;
+    }
+
+    /* ---------- GRIDS/CARDS ---------- */
+
+    .stackly-about-grid{
+        display:grid;
+        gap:1.6rem;
+    }
+
+    .stackly-about-cols-3{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stackly-about-cols-4{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .stackly-about-split{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:clamp(2rem,6vw,6rem);
+        align-items:center;
+    }
+
+    .stackly-about-card{
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:var(--r);
+        padding:2rem;
+        transition:transform .4s,box-shadow .4s,border-color .4s;
+        transform-style:preserve-3d;
+    }
+
+    .stackly-about-card:hover{
+        box-shadow:0 30px 60px rgba(15,18,38,.12);
+        border-color:transparent;
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-card{
+        background:rgba(255,255,255,.05);
+        border-color:rgba(255,255,255,.12);
+    }
+
+    .stackly-about-card .stackly-about-icon{
+        width:54px;
+        height:54px;
+        border-radius:16px;
+        display:grid;
+        place-items:center;
+        background:var(--mist);
+        font-size:1.6rem;
+        margin-bottom:1.2rem;
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-card .stackly-about-icon{
+        background:rgba(255,255,255,.1);
+    }
+
+    .stackly-about-card p{
+        color:var(--muted);
+        margin-top:.6rem;
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-card p{
+        color:#a9aed6;
+    }
+
+    .stackly-about-stat{
+        text-align:left;
+        border-top:2px solid var(--line);
+        padding-top:1.4rem;
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-stat{
+        border-color:rgba(255,255,255,.2);
+    }
+
+    .stackly-about-stat strong{
+        display:block;
+        font:800 clamp(2.6rem,5vw,4.4rem)/1 var(--head);
+        color:var(--ink);
+    }
+
+    .stackly-about-section.stackly-about-dark .stackly-about-stat strong{
+        color:var(--sun);
+    }
+
+    .stackly-about-stat span{
+        color:var(--muted);
+    }
+
+    /* ---------- TESTIMONIALS ---------- */
+
+    .stackly-about-quote{
+        flex:0 0 min(440px,86%);
+        scroll-snap-align:start;
+        display:flex;
+        flex-direction:column;
+        gap:1.4rem;
+    }
+
+    .stackly-about-quote p{
+        font-size:1.15rem;
+        color:var(--ink)!important;
+    }
+
+    .stackly-about-who{
+        display:flex;
+        align-items:center;
+        gap:.9rem;
+    }
+
+    .stackly-about-who img{
+        width:52px;
+        height:52px;
+        border-radius:50%;
+        object-fit:cover;
+        background:var(--indigo);
+    }
+
+    .stackly-about-who small{
+        display:block;
+        color:var(--muted);
+    }
+
+    /* ---------- FAQ ---------- */
+
+    .stackly-about-faq details{
+        border-bottom:1px solid var(--line);
+        padding:1.3rem 0;
+    }
+
+    .stackly-about-faq summary{
+        cursor:pointer;
+        font:700 1.2rem var(--head);
+        color:var(--ink);
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        gap:1rem;
+    }
+
+    .stackly-about-faq summary::after{
+        content:"+";
+        font-size:1.6rem;
+        line-height:1;
+        transition:transform .3s;
+    }
+
+    .stackly-about-faq details[open] summary::after{
+        transform:rotate(45deg);
+    }
+
+    .stackly-about-faq p{
+        padding-top:.8rem;
+        color:var(--muted);
+        max-width:70ch;
+    }
+
+    /* ---------- BLOG / PROJECTS ---------- */
+
+    .stackly-about-is-hidden{
+        display:none!important;
+    }
+
+    /* ---------- CTA + FOOTER ---------- */
+
+    .stackly-about-cta{
+        background:linear-gradient(120deg,var(--indigo),#8a3ffc);
+        color:#fff;
+        border-radius:34px;
+        padding:clamp(2.4rem,6vw,5rem);
+        text-align:center;
+        position:relative;
+        overflow:hidden;
+    }
+
+    .stackly-about-cta h2{
+        color:#fff;
+        margin:0 auto 1rem;
+        max-width:18ch;
+    }
+
+    .stackly-about-cta p{
+        color:#e0e2ff;
+        margin:0 auto 2rem;
+        max-width:52ch;
+    }
+
+    .stackly-about-cta .stackly-about-blob{
+        opacity:.35;
+    }
+
+    .stackly-about-sf{
+        background:var(--ink);
+        color:#a9aed6;
+        padding:5rem 0 2rem;
+    }
+
+    .stackly-about-sf-main{
+        display:grid;
+        grid-template-columns:1.5fr 1fr 1fr 1.3fr;
+        gap:2.5rem;
+    }
+
+    .stackly-about-sf h4{
+        color:#fff;
+        font-size:1.1rem;
+        margin-bottom:1rem;
+    }
+
+    .stackly-about-sf li{
+        margin:.5rem 0;
+    }
+
+    .stackly-about-sf a:hover{
+        color:var(--sun);
+    }
+
+    /* ---------- MEDIA QUERIES ---------- */
+
+    @media (max-width:1100px){
+        .stackly-about-cols-4{
+            grid-template-columns:repeat(2,1fr);
+        }
+
+        .stackly-about-sf-main{
+            grid-template-columns:1fr 1fr;
+        }
+
+        .stackly-about-hero-grid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-about-hero-media{
+            height:420px;
+        }
+    }
+
+    @media (max-width:900px){
+        .stackly-about-burger{
+            display:block;
+        }
+
+        .stackly-about-main-nav{
+            position:fixed;
+            inset:var(--nav) 0 auto 0;
+            background:var(--ink);
+            flex-direction:column;
+            align-items:flex-start;
+            padding:1.6rem 6%;
+            gap:1.1rem;
+            transform:translateY(-130%);
+            transition:transform .5s cubic-bezier(.2,.8,.2,1);
+            box-shadow:0 30px 60px rgba(0,0,0,.4);
+            max-height:calc(100vh - var(--nav));
+            overflow:auto;
+        }
+
+        .stackly-about-main-nav.stackly-about-is-open{
+            transform:none;
+        }
+
+        .stackly-about-cols-3{
+            grid-template-columns:1fr 1fr;
+        }
+
+        .stackly-about-split{
+            grid-template-columns:1fr;
+        }
+    }
+
+    @media (max-width:640px){
+        :root{
+            --nav:80px;
+        }
+
+        body{
+            font-size:1rem;
+        }
+
+        .stackly-about-cols-3,
+        .stackly-about-cols-4,
+        .stackly-about-sf-main{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-about-hero{
+            padding-top:calc(var(--nav) + 1.5rem);
+        }
+
+        .stackly-about-hero-media{
+            height:340px;
+        }
+
+        .stackly-about-chip{
+            font-size:.8rem;
+            padding:.5rem .8rem;
+        }
+
+        .stackly-about-section-head{
+            margin-bottom:2rem;
+        }
+
+        .stackly-about-cta{
+            border-radius:24px;
+        }
+    }
+
+    @media (prefers-reduced-motion:reduce){
+        *{
+            animation:none!important;
+            transition:none!important;
+        }
+
+        html{
+            scroll-behavior:auto;
+        }
+    }
+
+    a.stackly-about-card{
+        display:block;
+    }
+
+    .stackly-about-hero.stackly-about-short .stackly-about-hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stackly-about-hero.stackly-about-short p.stackly-about-lead{
+        max-width:56ch;
+    }
+
+    .stackly-about-team .stackly-about-frame{
+        aspect-ratio:4/5;
+        margin-bottom:1rem;
+    }
+
+    .stackly-about-tl{
+        border-left:2px solid var(--line);
+        padding-left:2rem;
+        display:grid;
+        gap:2rem;
+    }
+
+    .stackly-about-tl div{
+        position:relative;
+    }
+
+    .stackly-about-tl div::before{
+        content:"";
+        position:absolute;
+        left:-2.55rem;
+        top:.4rem;
+        width:14px;
+        height:14px;
+        border-radius:50%;
+        background:var(--indigo);
+        box-shadow:0 0 0 6px rgba(91,77,255,.18);
+    }
+
+    .stackly-about-tl strong{
+        font-family:var(--head);
+        color:var(--ink);
+        font-size:1.2rem;
+    }
+
+    .stackly-about-hero.stackly-about-short .stackly-about-hero-grid{
+        grid-template-columns:1.1fr .9fr;
+    }
+
+    .stackly-about-hero.stackly-about-short .stackly-about-hero-media{
+        height:min(420px,50vh);
+    }
+
+    .stackly-about-hero.stackly-about-short h1{
+        max-width:16ch;
+    }
+
+    .stackly-about-faq .stackly-about-split>h2{
+        position:sticky;
+        top:calc(var(--nav) + 1.5rem);
+    }
+
+    @media (min-width:901px){
+        .stackly-about-quote{
+            flex:none;
+        }
+    }
+
+    @media (max-width:1100px){
+        .stackly-about-hero.stackly-about-short .stackly-about-hero-grid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-about-hero.stackly-about-short .stackly-about-hero-media{
+            height:300px;
+        }
+    }
+
+    /* ---------- STATIC VERSION: NO MOTION, TIDY ALIGNMENT ---------- */
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+
+    .stackly-about-frame img{
+        transform:none!important;
+    }
+
+    .stackly-about-hero{
+        background:radial-gradient(60% 70% at 15% 10%,rgba(91,77,255,.55),transparent 60%),radial-gradient(50% 60% at 90% 30%,rgba(56,212,255,.3),transparent 60%),radial-gradient(40% 50% at 50% 100%,rgba(255,107,139,.25),transparent 60%),var(--ink);
+    }
+
+    .stackly-about-section.stackly-about-dark{
+        background:radial-gradient(50% 60% at 90% 0%,rgba(91,77,255,.35),transparent 60%),var(--ink);
+    }
+
+    .stackly-about-site-header .stackly-about-wrap,
+    .stackly-about-main-nav{
+        align-items:center;
+    }
+
+    .stackly-about-section-head{
+        align-items:flex-end;
+    }
+
+    .stackly-about-section-head h2{
+        max-width:18ch;
+    }
+
+    .stackly-about-grid>.stackly-about-card{
+        height:100%;
+    }
+
+    .stackly-about-hero-grid>div:first-child{
+        align-self:center;
+    }
+
+    .stackly-about-stat{
+        height:100%;
+    }
+
+    .stackly-about-who{
+        margin-top:auto;
+    }
+
+    .stackly-about-quote{
+        height:100%;
+    }
+
+    .stackly-about-sf-main>div{
+        min-width:0;
+    }
+
+    .stackly-about-cta h2,
+    .stackly-about-cta p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    @media (max-width:640px){
+        .stackly-about-section-head{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+    }
+
+    /* ---------- FOOTER (REFERENCE DESIGN) ---------- */
+
+    .stackly-about-sf{
+        background:radial-gradient(60% 80% at 85% 60%,rgba(91,77,255,.18),transparent 65%),#0b0a1c;
+        color:#b4b8dc;
+        padding:4.5rem 0 0;
+    }
+
+    .stackly-about-sf-main{
+        display:grid;
+        grid-template-columns:1.35fr 1fr 1fr 1fr 1.25fr;
+        gap:2.5rem;
+        padding-bottom:3rem;
+    }
+
+    .stackly-about-sf-brand p{
+        margin:1.2rem 0 1.6rem;
+        max-width:36ch;
+        line-height:1.9;
+        color:#a9aed6;
+    }
+
+    .stackly-about-sf-socials{
+        display:flex;
+        gap:.7rem;
+        flex-wrap:wrap;
+    }
+
+    .stackly-about-sf-socials a{
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        color:var(--sky);
+        background:rgba(255,255,255,.04);
+        border:1px solid rgba(255,255,255,.14);
+    }
+
+    .stackly-about-sf-socials a:hover{
+        background:var(--sky);
+        color:var(--ink);
+    }
+
+    .stackly-about-sf h4{
+        font:700 1.2rem var(--head);
+        letter-spacing:.12em;
+        text-transform:uppercase;
+        color:var(--sky);
+        margin-bottom:2rem;
+        padding-bottom:1rem;
+        position:relative;
+    }
+
+    .stackly-about-sf h4::after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:40px;
+        height:3px;
+        border-radius:3px;
+        background:var(--sky);
+    }
+
+    .stackly-about-sf-links li,
+    .stackly-about-sf-contact li{
+        margin:0 0 1.1rem;
+    }
+
+    .stackly-about-sf-links a{
+        display:flex;
+        align-items:center;
+        gap:.8rem;
+        color:#e8eaff;
+        font-size:1.05rem;
+    }
+
+    .stackly-about-sf-links a::before{
+        content:"";
+        width:8px;
+        height:8px;
+        border-top:2px solid var(--sky);
+        border-right:2px solid var(--sky);
+        transform:rotate(45deg);
+        flex:none;
+        margin-right:.3rem;
+    }
+
+    .stackly-about-sf-links a:hover,
+    .stackly-about-sf-contact a:hover{
+        color:var(--sky);
+    }
+
+    .stackly-about-sf-contact li{
+        display:flex;
+        align-items:center;
+        gap:1rem;
+        color:#e8eaff;
+        font-size:1.05rem;
+    }
+
+    .stackly-about-sf-contact a{
+        color:#e8eaff;
+    }
+
+    .stackly-about-sf-bottom{
+        border-top:1px solid rgba(255,255,255,.1);
+        padding:1.6rem 0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:1rem;
+        color:#a9aed6;
+    }
+
+    .stackly-about-pay{
+        display:flex;
+        align-items:center;
+        gap:.9rem;
+        flex-wrap:wrap;
+    }
+
+    .stackly-about-secure{
+        display:inline-flex;
+        align-items:center;
+        gap:.6rem;
+        padding-right:1.2rem;
+        margin-right:.3rem;
+        border-right:1px solid rgba(255,255,255,.14);
+    }
+
+    .stackly-about-badge-pay{
+        min-width:80px;
+        height:36px;
+        padding:0 1rem;
+        border-radius:8px;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        font:italic 800 .95rem var(--body);
+        color:#1a1f71;
+    }
+
+    .stackly-about-badge-pay.stackly-about-mc i{
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        background:#eb001b;
+    }
+
+    .stackly-about-badge-pay.stackly-about-mc i+i{
+        background:#f79e1b;
+        margin-left:-7px;
+    }
+
+    .stackly-about-badge-pay.stackly-about-rupay{
+        font-style:normal;
+        color:#1d4a9c;
+    }
+
+    .stackly-about-badge-pay.stackly-about-rupay b{
+        color:#f26522;
+    }
+
+    .stackly-about-badge-pay.stackly-about-upi{
+        color:#444;
+    }
+
+    @media (max-width:1100px){
+        .stackly-about-sf-main{
+            grid-template-columns:1fr 1fr 1fr;
+        }
+
+        .stackly-about-sf-brand{
+            grid-column:1/-1;
+        }
+
+        .stackly-about-sf-brand p{
+            max-width:60ch;
+        }
+    }
+
+    @media (max-width:640px){
+        .stackly-about-sf-main{
+            grid-template-columns:1fr 1fr;
+            gap:2rem 1.2rem;
+        }
+
+        .stackly-about-sf-brand,
+        .stackly-about-sf-main>.stackly-about-sf-col:last-child{
+            grid-column:1/-1;
+        }
+
+        .stackly-about-sf-bottom{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        .stackly-about-secure{
+            border:0;
+            padding:0;
+            width:100%;
+        }
+
+        .stackly-about-sf h4{
+            letter-spacing:.08em;
+            font-size:1.05rem;
+        }
+    }
+
+    .stackly-about-sf-main{
+        grid-template-columns:1.7fr 1fr 1fr 1fr 1.3fr;
+    }
+
+    .stackly-about-sf-socials{
+        gap:.5rem;
+        flex-wrap:nowrap;
+    }
+
+    .stackly-about-sf-socials a{
+        width:44px;
+        height:44px;
+        flex:none;
+    }
+
+    @media (max-width:1100px){
+        .stackly-about-sf-main{
+            grid-template-columns:1fr 1fr 1fr;
+        }
+    }
+
+    @media (max-width:640px){
+        .stackly-about-sf-main{
+            grid-template-columns:1fr 1fr;
+        }
+
+        .stackly-about-sf-socials{
+            flex-wrap:wrap;
+        }
+    }
+
+    /* ---------- FOOTER: SITE THEME COLOURS (INK + AMBER) ---------- */
+
+    .stackly-about-sf{
+        background:var(--ink);
+        color:#a9aed6;
+    }
+
+    .stackly-about-sf h4{
+        color:#fff;
+    }
+
+    .stackly-about-sf h4::after{
+        background:var(--sun);
+    }
+
+    .stackly-about-sf-socials a{
+        color:var(--sun);
+        background:rgba(255,255,255,.05);
+        border-color:rgba(255,255,255,.15);
+    }
+
+    .stackly-about-sf-socials a:hover{
+        background:var(--sun);
+        color:var(--ink);
+    }
+
+    .stackly-about-sf-links a::before{
+        border-color:var(--sun);
+    }
+
+    .stackly-about-sf-links a:hover,
+    .stackly-about-sf-contact a:hover{
+        color:var(--sun);
+    }
+
+    .stackly-about-sf-bottom{
+        border-top-color:rgba(255,255,255,.12);
+    }
+
+    /* ---------- ADDED CONTENT ---------- */
+
+    .stackly-about-faq{
+        display:grid;
+        gap:1rem;
+        max-width:860px;
+        margin-top:2rem;
+    }
+
+    .stackly-about-faq details{
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:18px;
+        padding:1.2rem 1.5rem;
+        transition:box-shadow .3s;
+    }
+
+    .stackly-about-faq details[open]{
+        box-shadow:0 20px 44px rgba(15,18,38,.08);
+    }
+
+    .stackly-about-faq summary{
+        cursor:pointer;
+        font:700 1.15rem var(--head);
+        color:var(--ink);
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        gap:1rem;
+    }
+
+    .stackly-about-faq summary::-webkit-details-marker{
+        display:none;
+    }
+
+    .stackly-about-faq summary::after{
+        content:"+";
+        font-size:1.5rem;
+        line-height:1;
+        color:var(--indigo);
+    }
+
+    .stackly-about-faq details[open] summary::after{
+        content:"\2013";
+    }
+
+    .stackly-about-faq p{
+        margin-top:.8rem;
+        color:var(--muted);
+    }
+
+    .stackly-about-quote p{
+        font-size:1.1rem;
+        color:var(--text);
+        margin-top:0;
+    }
+
+    .stackly-about-quote .stackly-about-who{
+        display:flex;
+        align-items:center;
+        gap:.8rem;
+        margin-top:1.4rem;
+    }
+
+    .stackly-about-quote .stackly-about-who b{
+        display:grid;
+        place-items:center;
+        width:44px;
+        height:44px;
+        border-radius:50%;
+        background:var(--indigo);
+        color:#fff;
+        font:700 1rem var(--head);
+    }
+
+    .stackly-about-quote .stackly-about-who span{
+        display:block;
+        font-weight:700;
+        color:var(--ink);
+        line-height:1.2;
+    }
+
+    .stackly-about-quote .stackly-about-who small{
+        color:var(--muted);
+    }
+
+    .stackly-about-quote .stackly-about-mark{
+        font:800 3rem/1 var(--head);
+        color:var(--sun);
+        display:block;
+        margin-bottom:.4rem;
+    }
+
+    .stackly-about-ticks{
+        display:grid;
+        gap:.8rem;
+        margin-top:1.6rem;
+    }
+
+    .stackly-about-ticks li{
+        position:relative;
+        padding-left:2rem;
+    }
+
+    .stackly-about-ticks li::before{
+        content:"\2713";
+        position:absolute;
+        left:0;
+        top:0;
+        width:1.35rem;
+        height:1.35rem;
+        border-radius:50%;
+        background:rgba(91,77,255,.12);
+        color:var(--indigo);
+        display:grid;
+        place-items:center;
+        font-size:.8rem;
+        font-weight:700;
+        top:.2rem;
+    }
+</style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+
+    <header
+        class="stackly-about-site-header"
+        id="top"
+    >
+        <div class="stackly-about-wrap">
+            <a
+                href="index.html"
+                class="stackly-about-logo"
+                aria-label="Stackly home"
+            ><img src="./stackly.png" alt="Stackly" /></a>
+
+            <button
+                class="stackly-about-burger"
+                id="burger"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            ><span></span><span></span></button>
+
+            <nav
+                class="stackly-about-main-nav"
+                id="mainNav"
+                aria-label="Primary"
+            >
+                <a href="index.html">Home</a>
+
+                <a
+                    href="about.html"
+                    class="stackly-about-is-active"
+                >About</a>
+
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+
+                <a
+                    class="stackly-about-btn stackly-about-small"
+                    id="accountBtn"
+                    href="login.html"
+                >Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ HERO ============ -->
+
+        <section class="stackly-about-hero stackly-about-short">
+            <div class="stackly-about-wrap stackly-about-hero-grid">
+                <div>
+                    <span class="stackly-about-tag"><i></i> About Stackly</span>
+                    <h1>A workplace built by people who got tired of lonely desks.</h1>
+
+                    <p class="stackly-about-lead">
+                        Stackly Cowork started in 2021 with 20 desks and one big table. Today it is the busiest working community in Salem.
+                    </p>
+                </div>
+
+                <div class="stackly-about-hero-media">
+                    <div class="stackly-about-frame stackly-about-hero-main">
+                        <img
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            srcset="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                            sizes="45vw"
+                            alt=""
+                            decoding="async"
+                            onerror="this.style.visibility='hidden'"
+                        />
+                    </div>
+
+                    <div class="stackly-about-frame stackly-about-hero-inset">
+                        <img
+                            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            srcset="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                            sizes="30vw"
+                            alt=""
+                            decoding="async"
+                            onerror="this.style.visibility='hidden'"
+                        />
+                    </div>
+
+                    <div class="stackly-about-chip stackly-about-chip-a"><b></b> Open since 2021</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ OUR STORY ============ -->
+
+        <section class="stackly-about-section">
+            <div class="stackly-about-wrap stackly-about-split">
+                <div class="stackly-about-frame stackly-about-ratio-tall">
+                    <img
+                        src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                        srcset="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                        sizes="50vw"
+                        alt="Founders planning at a whiteboard"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.style.visibility='hidden'"
+                    />
+                </div>
+
+                <div>
+                    <span class="stackly-about-tag"><i></i> Our story</span>
+                    <h2>Started with one table</h2>
+
+                    <p
+                        class="stackly-about-lead"
+                        style="margin-top:1.2rem"
+                    >
+                        Our founders were freelancers working from cafés and spare rooms, missing the energy of a team. They rented a floor in MMR Complex, bought one long table and invited ten friends.
+                    </p>
+
+                    <p
+                        class="stackly-about-lead"
+                        style="margin-top:1rem"
+                    >
+                        That table is still in the middle of the floor. Around it we added quiet zones, meeting rooms, an event hall and a rooftop garden, always asking members what to build next.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MISSION ============ -->
+
+        <section class="stackly-about-section stackly-about-mist">
+            <div class="stackly-about-wrap">
+                <p class="stackly-about-statement">
+                    Good work happens when people feel safe to ask for help, share what they know, and show up on a bad day too.
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ VALUES ============ -->
+
+        <section class="stackly-about-section">
+            <div class="stackly-about-wrap">
+                <div class="stackly-about-section-head">
+                    <h2>What we stand for</h2>
+                </div>
+
+                <div class="stackly-about-grid stackly-about-cols-4">
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🤝</div>
+                        <h3>Community first</h3>
+                        <p>We introduce members to each other on day one.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🎯</div>
+                        <h3>Focus by design</h3>
+                        <p>Zones for calls, quiet work and collaboration stay separate.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🔓</div>
+                        <h3>Flexible always</h3>
+                        <p>Grow, shrink or pause a plan without penalties.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🌱</div>
+                        <h3>Local roots</h3>
+                        <p>We hire, source and host from Salem first.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ INSIDE STACKLY ============ -->
+
+        <section class="stackly-about-section stackly-about-mist">
+            <div class="stackly-about-wrap stackly-about-split">
+                <div>
+                    <span class="stackly-about-tag"><i></i> Inside Stackly</span>
+                    <h2>One building, five ways to work</h2>
+
+                    <p
+                        class="stackly-about-lead"
+                        style="margin-top:1.2rem"
+                    >
+                        Every floor is planned around how people actually spend their day, from a ten minute call to a full week of heads-down building.
+                    </p>
+
+                    <ul class="stackly-about-ticks">
+                        <li><strong>Open floor</strong> with hot desks, standing benches and the long founding table.</li>
+                        <li><strong>Quiet zone</strong> with no calls, no chatter and strict phone-free desks.</li>
+                        <li><strong>Private offices</strong> for 2 to 12 people, lockable and fully furnished.</li>
+                        <li><strong>Meeting rooms</strong> with screens, whiteboard walls and video-call kits.</li>
+                        <li><strong>Event hall and rooftop garden</strong> for workshops, demos and Friday chai.</li>
+                    </ul>
+                </div>
+
+                <div class="stackly-about-frame stackly-about-ratio-tall">
+                    <img
+                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                        srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                        sizes="50vw"
+                        alt="Bright coworking floor with desks"
+                        loading="lazy"
+                        decoding="async"
+                        onerror="this.style.visibility='hidden'"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ INCLUDED IN EVERY PLAN ============ -->
+
+        <section class="stackly-about-section">
+            <div class="stackly-about-wrap">
+                <div class="stackly-about-section-head">
+                    <h2>Everything included, every plan</h2>
+                </div>
+
+                <div class="stackly-about-grid stackly-about-cols-3">
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">📶</div>
+                        <h3>1 Gbps fibre Wi-Fi</h3>
+                        <p>Two independent providers with automatic failover, so a bad day at one never stops your work.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">☕</div>
+                        <h3>Chai, coffee and snacks</h3>
+                        <p>Filter coffee, fresh chai and fruit are always stocked and always free for members.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🔋</div>
+                        <h3>Backup power</h3>
+                        <p>Generator and UPS cover the whole floor, so power cuts never reach your desk.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🖨️</div>
+                        <h3>Print and mail desk</h3>
+                        <p>Printing, scanning and a registered business address with mail handling.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🛡️</div>
+                        <h3>24/7 secure access</h3>
+                        <p>Keycard entry, CCTV and a lockable locker for every member.</p>
+                    </div>
+
+                    <div class="stackly-about-card">
+                        <div class="stackly-about-icon">🚲</div>
+                        <h3>Parking and bike bay</h3>
+                        <p>Covered two-wheeler parking, a car bay and a bike stand with a repair kit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ STATS ============ -->
+
+        <section class="stackly-about-section stackly-about-dark">
+            <div class="stackly-about-wrap stackly-about-grid stackly-about-cols-4">
+                <div class="stackly-about-stat"><strong>2,021</strong><span>Year we opened</span></div>
+                <div class="stackly-about-stat"><strong>18k</strong><span>Sq ft of workspace</span></div>
+                <div class="stackly-about-stat"><strong>320+</strong><span>Events held</span></div>
+                <div class="stackly-about-stat"><strong>4.9</strong><span>Average member rating</span></div>
+            </div>
+        </section>
+
+        <!-- ============ TIMELINE ============ -->
+
+        <section class="stackly-about-section">
+            <div
+                class="stackly-about-wrap stackly-about-split"
+                style="align-items:start"
+            >
+                <div>
+                    <h2>How we grew</h2>
+                </div>
+
+                <div class="stackly-about-tl">
+                    <div>
+                        <strong>2021 — One table</strong>
+                        <p>20 desks opened in MMR Complex with ten founding members.</p>
+                    </div>
+
+                    <div>
+                        <strong>2022 — Private offices</strong>
+                        <p>Eight lockable rooms for startups that outgrew the open floor.</p>
+                    </div>
+
+                    <div>
+                        <strong>2024 — Event hall and rooftop</strong>
+                        <p>Space for 80 guests and our Friday chai garden.</p>
+                    </div>
+
+                    <div>
+                        <strong>2026 — 240 members</strong>
+                        <p>A full house, a waiting list and a second floor in planning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TESTIMONIALS ============ -->
+
+        <section class="stackly-about-section">
+            <div class="stackly-about-wrap">
+                <div class="stackly-about-section-head">
+                    <h2>What members say</h2>
+                </div>
+
+                <div class="stackly-about-grid stackly-about-cols-3">
+                    <div class="stackly-about-card stackly-about-quote">
+                        <span class="stackly-about-mark">“</span>
+
+                        <p>
+                            I joined for a desk and stayed for the people. Two of my first three clients came from conversations in the coffee queue.
+                        </p>
+
+                        <div class="stackly-about-who">
+                            <b>M</b>
+                            <div><span>Meena Iyer</span><small>Freelance brand designer</small></div>
+                        </div>
+                    </div>
+
+                    <div class="stackly-about-card stackly-about-quote">
+                        <span class="stackly-about-mark">“</span>
+
+                        <p>
+                            We moved from a rented flat to a private office in a weekend. No deposit drama, no furniture hunt and the Wi-Fi just works.
+                        </p>
+
+                        <div class="stackly-about-who">
+                            <b>R</b>
+                            <div><span>Rahul Menon</span><small>Co-founder, GreenLeaf Agritech</small></div>
+                        </div>
+                    </div>
+
+                    <div class="stackly-about-card stackly-about-quote">
+                        <span class="stackly-about-mark">“</span>
+                        <p>The team notices when you are having a rough week and quietly makes it better. That is rare in any workplace.</p>
+
+                        <div class="stackly-about-who">
+                            <b>S</b>
+                            <div><span>Sangeetha Pillai</span><small>Remote product manager</small></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TEAM ============ -->
+
+        <section class="stackly-about-section stackly-about-mist stackly-about-team">
+            <div class="stackly-about-wrap">
+                <div class="stackly-about-section-head">
+                    <h2>The people behind the desks</h2>
+                </div>
+
+                <div class="stackly-about-grid stackly-about-cols-4">
+                    <div>
+                        <div class="stackly-about-frame">
+                            <img
+                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                                srcset="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                                sizes="25vw"
+                                alt="Portrait of Arun, founder"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.style.visibility='hidden'"
+                            />
+                        </div>
+
+                        <h3>Arun Kumar</h3>
+                        <p>Founder and CEO</p>
+                    </div>
+
+                    <div>
+                        <div class="stackly-about-frame">
+                            <img
+                                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                                srcset="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                                sizes="25vw"
+                                alt="Portrait of Nithya, community lead"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.style.visibility='hidden'"
+                            />
+                        </div>
+
+                        <h3>Nithya Raman</h3>
+                        <p>Head of community</p>
+                    </div>
+
+                    <div>
+                        <div class="stackly-about-frame">
+                            <img
+                                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                                srcset="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                                sizes="25vw"
+                                alt="Portrait of Priya, operations"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.style.visibility='hidden'"
+                            />
+                        </div>
+
+                        <h3>Priya Shankar</h3>
+                        <p>Operations manager</p>
+                    </div>
+
+                    <div>
+                        <div class="stackly-about-frame">
+                            <img
+                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                                srcset="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                                sizes="25vw"
+                                alt="Portrait of Vikram, technology"
+                                loading="lazy"
+                                decoding="async"
+                                onerror="this.style.visibility='hidden'"
+                            />
+                        </div>
+
+                        <h3>Vikram Das</h3>
+                        <p>Technology and facilities</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FAQ ============ -->
+
+        <section class="stackly-about-section">
+            <div class="stackly-about-wrap">
+                <span class="stackly-about-tag"><i></i> Good to know</span>
+                <h2>Questions people ask before visiting</h2>
+
+                <div class="stackly-about-faq">
+                    <details>
+                        <summary>Can I try Stackly before I commit?</summary>
+                        <p>Yes. Book a free tour and we will give you a day pass so you can work from the floor and meet a few members.</p>
+                    </details>
+
+                    <details>
+                        <summary>Are there long contracts?</summary>
+                        <p>No. Hot desks are monthly, and you can upgrade, downgrade or pause your plan without penalties.</p>
+                    </details>
+
+                    <details>
+                        <summary>Is the space open on weekends?</summary>
+                        <p>Members have keycard access every day of the week. Staffed hours are Monday to Saturday, 8 am to 9 pm.</p>
+                    </details>
+
+                    <details>
+                        <summary>Can I host a client meeting or an event?</summary>
+
+                        <p>
+                            Meeting rooms can be booked by the hour, and the event hall seats up to 80 guests with AV and catering support.
+                        </p>
+                    </details>
+
+                    <details>
+                        <summary>Do you offer a business address for registration?</summary>
+                        <p>Yes. Dedicated desk and private office plans include a registered address and mail handling.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CALL TO ACTION ============ -->
+
+        <section
+            class="stackly-about-section"
+            style="padding-top:0"
+        >
+            <div class="stackly-about-wrap">
+                <div class="stackly-about-cta">
+                    <div
+                        class="stackly-about-blob stackly-about-blob-1"
+                        style="width:300px;height:300px;background:#38d4ff;top:-100px;left:-60px"
+                    ></div>
+
+                    <div
+                        class="stackly-about-blob stackly-about-blob-3"
+                        style="width:320px;height:320px;background:#ff6b8b;bottom:-140px;right:-60px"
+                    ></div>
+
+                    <h2>Meet the team in person.</h2>
+                    <p>Drop in any weekday. Chai is on us.</p>
+
+                    <a
+                        class="stackly-about-btn"
+                        href="contact.html"
+                    >Book a free tour</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+
+    <footer
+        class="stackly-about-sf"
+        id="contactInfo"
+    >
+        <div class="stackly-about-wrap">
+            <div class="stackly-about-sf-main">
+                <div class="stackly-about-sf-brand">
+                    <a
+                        href="index.html"
+                        class="stackly-about-logo"
+                        aria-label="Stackly home"
+                    ><img src="./stackly.png" alt="Stackly" /></a>
+
+                    <p>
+                        Stackly Cowork gives freelancers, startups and growing teams hot desks, private offices and meeting rooms in Salem, with fast Wi-Fi and a friendly community.
+                    </p>
+
+                    <div class="stackly-about-sf-socials">
+                        <a
+                            href="error.html"
+                            aria-label="Facebook"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="LinkedIn"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h4v11H4zM6 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v2c.7-1.3 2-2.2 4-2.2 3 0 4 2 4 5V20h-4v-5.5c0-1.5-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.5V20h-4z" transform="scale(.9) translate(1 1)"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="Twitter"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.3 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.3 4.1-.6.2-1.2.2-1.8.1.5 1.6 2 2.8 3.8 2.8A8.3 8.3 0 0 1 2 18.3 11.7 11.7 0 0 0 8.3 20c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2z"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="Instagram"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="YouTube"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="stackly-about-sf-col">
+                    <h4>Explore</h4>
+
+                    <ul class="stackly-about-sf-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-about-sf-col">
+                    <h4>Spaces</h4>
+
+                    <ul class="stackly-about-sf-links">
+                        <li><a href="services.html">Hot Desk</a></li>
+                        <li><a href="services.html">Dedicated Desk</a></li>
+                        <li><a href="services.html">Private Office</a></li>
+                        <li><a href="services.html">Meeting Rooms</a></li>
+                        <li><a href="services.html">Event Hall</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-about-sf-col">
+                    <h4>Account</h4>
+
+                    <ul class="stackly-about-sf-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html?tab=signup">Create Account</a></li>
+                        <li><a href="user-dashboard.html">My Dashboard</a></li>
+                        <li><a href="admin-dashboard.html">Admin Panel</a></li>
+                        <li><a href="contact.html">Book a Tour</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-about-sf-col">
+                    <h4>Get in touch</h4>
+
+                    <ul class="stackly-about-sf-contact">
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><a href="mailto:hello@stackly.in">hello@stackly.in</a></li>
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+910000000000">+91 00000 00000</a></li>
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s7-6.1 7-11a7 7 0 0 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>MMR Complex, Salem, Tamil Nadu, India</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stackly-about-sf-bottom">
+                <span>© <span id="year">2026</span> Stackly Cowork. All rights reserved.</span>
+
+                <div class="stackly-about-pay">
+                    <span class="stackly-about-secure"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure Payments</span>
+                    <span class="stackly-about-badge-pay stackly-about-visa">VISA</span>
+                    <span class="stackly-about-badge-pay stackly-about-mc"><i></i><i></i></span>
+                    <span class="stackly-about-badge-pay stackly-about-rupay">Ru<b>Pay</b></span>
+                    <span class="stackly-about-badge-pay stackly-about-upi">UPI</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* ---------- Header: solid background on scroll + mobile menu ---------- */
+  var header = $('.stackly-about-site-header');
+  var onScroll = function(){ header.classList.toggle('stackly-about-is-solid', window.scrollY > 60); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  var burger = $('#burger'), nav = $('#mainNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('stackly-about-is-open');
+    burger.classList.toggle('stackly-about-is-open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  $$('#mainNav a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('stackly-about-is-open'); burger.classList.remove('stackly-about-is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- Account button: Login / My dashboard (demo session) ---------- */
+  var account = $('#accountBtn');
+  try {
+    var users = JSON.parse(localStorage.getItem('stackly_users')) || [];
+    var session = JSON.parse(localStorage.getItem('stackly_session'));
+    var email = session && String(session.email || '').trim().toLowerCase();
+    var user = email && users.filter(function(u){ return u.email === email; })[0];
+    if(user){
+      account.textContent = 'My dashboard';
+      account.setAttribute('href', user.role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html');
+    }
+  } catch(e) {}
+
+  /* ---------- Footer year ---------- */
+  $('#year').textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>

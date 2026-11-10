@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not available | Stackly Cowork</title>
+<link rel="icon" href="./stackly.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* ==========================================================
+       Stackly Cowork - error.html styles
+       class prefix: stackly-error-
+       ========================================================== */
+
+    :root{
+        --ink:#0f1226;
+        --ink2:#181c3a;
+        --indigo:#5b4dff;
+        --sky:#38d4ff;
+        --sun:#ffc24b;
+        --head:'Bricolage Grotesque',sans-serif;
+        --body:'Figtree',sans-serif;
+    }
+
+    *{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+
+    body{
+        min-height:100vh;
+        display:grid;
+        place-items:center;
+        padding:2rem;
+        font-family:var(--body);
+        color:#c9cdf0;
+        background:
+            radial-gradient(60% 50% at 80% 0%,rgba(91,77,255,.35),transparent 70%),
+            radial-gradient(50% 50% at 0% 100%,rgba(56,212,255,.15),transparent 70%),
+            var(--ink);
+    }
+
+    /* ---------- CONTENT ---------- */
+
+    .stackly-error-box{
+        max-width:560px;
+        text-align:center;
+    }
+
+    .stackly-error-code{
+        font-family:var(--head);
+        font-weight:800;
+        font-size:clamp(5rem,22vw,9rem);
+        line-height:1;
+        letter-spacing:-.04em;
+        background:linear-gradient(90deg,var(--indigo),var(--sky),var(--sun));
+        -webkit-background-clip:text;
+        background-clip:text;
+        color:transparent;
+    }
+
+    .stackly-error-box h1{
+        font-family:var(--head);
+        font-weight:800;
+        color:#fff;
+        font-size:clamp(1.6rem,5vw,2.4rem);
+        margin:1rem 0 .8rem;
+        letter-spacing:-.02em;
+    }
+
+    .stackly-error-box p{
+        line-height:1.7;
+        margin-bottom:2rem;
+    }
+
+    /* ---------- BUTTONS ---------- */
+
+    .stackly-error-btns{
+        display:flex;
+        gap:.8rem;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    .stackly-error-btn{
+        display:inline-block;
+        padding:.85rem 1.7rem;
+        border-radius:99px;
+        font:inherit;
+        font-weight:700;
+        text-decoration:none;
+        cursor:pointer;
+        transition:transform .2s;
+    }
+
+    .stackly-error-btn:hover{
+        transform:translateY(-2px);
+    }
+
+    .stackly-error-btn:focus-visible{
+        outline:3px solid var(--sky);
+        outline-offset:3px;
+    }
+
+    .stackly-error-primary{
+        background:var(--sun);
+        color:var(--ink);
+        border:1.5px solid var(--sun);
+    }
+
+    .stackly-error-ghost{
+        background:transparent;
+        border:1.5px solid rgba(255,255,255,.25);
+        color:#fff;
+    }
+</style>
+</head>
+<body>
+
+    <main class="stackly-error-box">
+
+        <!-- ============ MESSAGE ============ -->
+
+        <div
+            class="stackly-error-code"
+            aria-hidden="true"
+        >Oops</div>
+
+        <h1>This page isn’t available yet</h1>
+
+        <p>
+            We’re still setting this up. Please head back to the home page, or reach us at hello@stackly.in.
+        </p>
+
+        <!-- ============ ACTIONS ============ -->
+
+        <div class="stackly-error-btns">
+
+            <a
+                class="stackly-error-btn stackly-error-primary"
+                href="/index.html"
+                id="homeBtn"
+            >Back to home</a>
+
+            <a
+                class="stackly-error-btn stackly-error-ghost"
+                href="/index.html"
+                id="backBtn"
+            >Go back</a>
+
+        </div>
+
+    </main>
+
+<script>
+(function(){
+  'use strict';
+  var home = document.getElementById('homeBtn');
+  var back = document.getElementById('backBtn');
+
+  /* ---------- "Go back": use browser history when there is some, otherwise fall back to home ---------- */
+  back.addEventListener('click', function(e){
+    if(window.history.length > 1){
+      e.preventDefault();
+      window.history.back();
+    }
+  });
+
+  /* ---------- Local file: "/index.html" would point to the drive root, so use a relative path ---------- */
+  if(location.protocol === 'file:'){
+    home.setAttribute('href', 'index.html');
+    back.setAttribute('href', 'index.html');
+  }
+})();
+</script>
+
+</body>
+</html>

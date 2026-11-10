@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact — Stackly Cowork</title>
+<meta name="description" content="Book a tour or ask about pricing at Stackly Cowork, Salem.">
+<link rel="icon" href="./stackly.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    /* ==========================================================
+       Stackly Cowork - contact.html styles
+       class prefix: stackly-contact-
+       ========================================================== */
+
+    :root{
+        --ink:#0f1226;
+        --ink2:#181c3a;
+        --indigo:#5b4dff;
+        --sky:#38d4ff;
+        --sun:#ffc24b;
+        --rose:#ff6b8b;
+        --mist:#f2f4ff;
+        --paper:#fff;
+        --text:#2a2e4a;
+        --muted:#6b7090;
+        --line:rgba(15,18,38,.12);
+        --r:22px;
+        --head:'Bricolage Grotesque',system-ui,sans-serif;
+        --body:'Figtree',system-ui,sans-serif;
+        --nav:86px;
+    }
+
+    *,
+    *::before,
+    *::after{
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:var(--body);
+        color:var(--text);
+        background:var(--paper);
+        line-height:1.65;
+        font-size:1.05rem;
+        overflow-x:hidden;
+    }
+
+    img{
+        display:block;
+        max-width:100%;
+    }
+
+    a{
+        color:inherit;
+        text-decoration:none;
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    button,
+    input,
+    select,
+    textarea{
+        font:inherit;
+        color:inherit;
+    }
+
+    :focus-visible{
+        outline:3px solid var(--sky);
+        outline-offset:3px;
+        border-radius:6px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4{
+        font-family:var(--head);
+        color:var(--ink);
+        line-height:1.05;
+        letter-spacing:-.025em;
+    }
+
+    h1{
+        font-size:clamp(2.6rem,7.2vw,6.2rem);
+        font-weight:800;
+    }
+
+    h2{
+        font-size:clamp(2rem,4.6vw,3.8rem);
+        font-weight:700;
+    }
+
+    h3{
+        font-size:1.35rem;
+        font-weight:700;
+        letter-spacing:-.01em;
+    }
+
+    p.stackly-contact-lead{
+        font-size:clamp(1.05rem,1.6vw,1.3rem);
+        color:var(--muted);
+        max-width:60ch;
+    }
+
+    .stackly-contact-wrap{
+        width:min(1240px,92%);
+        margin-inline:auto;
+    }
+
+    .stackly-contact-section{
+        padding:clamp(4.5rem,9vw,8rem) 0;
+        position:relative;
+    }
+
+    .stackly-contact-section.stackly-contact-mist{
+        background:var(--mist);
+    }
+
+    .stackly-contact-tag{
+        display:inline-flex;
+        align-items:center;
+        gap:.5rem;
+        padding:.4rem .9rem;
+        border-radius:99px;
+        background:rgba(91,77,255,.1);
+        color:var(--indigo);
+        font-weight:600;
+        font-size:.9rem;
+        margin-bottom:1.2rem;
+    }
+
+    .stackly-contact-hero .stackly-contact-tag{
+        background:rgba(255,255,255,.1);
+        color:#d9dcff;
+    }
+
+    .stackly-contact-tag i{
+        width:8px;
+        height:8px;
+        border-radius:50%;
+        background:var(--sun);
+        display:inline-block;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    .stackly-contact-site-header{
+        position:fixed;
+        inset:0 0 auto 0;
+        height:var(--nav);
+        z-index:100;
+        display:flex;
+        align-items:center;
+        transition:background .4s,box-shadow .4s,transform .4s;
+    }
+
+    .stackly-contact-site-header.stackly-contact-is-solid{
+        background:rgba(15,18,38,.88);
+        backdrop-filter:blur(14px);
+        box-shadow:0 10px 40px rgba(0,0,0,.18);
+    }
+
+    .stackly-contact-site-header .stackly-contact-wrap{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:1.5rem;
+    }
+
+    .stackly-contact-logo img{
+        height:70px;
+        width:auto;
+        object-fit:contain;
+    }
+
+    .stackly-contact-main-nav{
+        display:flex;
+        align-items:center;
+        gap:2rem;
+    }
+
+    .stackly-contact-main-nav a{
+        color:#e5e7ff;
+        font-weight:500;
+        position:relative;
+        padding:.3rem 0;
+    }
+
+    .stackly-contact-main-nav a:not(.stackly-contact-btn)::after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:-2px;
+        height:2px;
+        width:100%;
+        background:var(--sun);
+        transform:scaleX(0);
+        transform-origin:right;
+        transition:transform .35s;
+    }
+
+    .stackly-contact-main-nav a:not(.stackly-contact-btn):hover::after,
+    .stackly-contact-main-nav a.stackly-contact-is-active::after{
+        transform:scaleX(1);
+        transform-origin:left;
+    }
+
+    .stackly-contact-burger{
+        display:none;
+        background:none;
+        border:0;
+        width:44px;
+        height:44px;
+        cursor:pointer;
+        position:relative;
+    }
+
+    .stackly-contact-burger span{
+        position:absolute;
+        left:10px;
+        right:10px;
+        height:2px;
+        background:#fff;
+        transition:.3s;
+    }
+
+    .stackly-contact-burger span:nth-child(1){
+        top:16px;
+    }
+
+    .stackly-contact-burger span:nth-child(2){
+        top:27px;
+    }
+
+    .stackly-contact-burger.stackly-contact-is-open span:nth-child(1){
+        top:21px;
+        transform:rotate(45deg);
+    }
+
+    .stackly-contact-burger.stackly-contact-is-open span:nth-child(2){
+        top:21px;
+        transform:rotate(-45deg);
+    }
+
+    /* ---------- BUTTONS ---------- */
+
+    .stackly-contact-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:.6rem;
+        padding:.95rem 1.7rem;
+        border-radius:99px;
+        border:0;
+        background:var(--sun);
+        color:var(--ink)!important;
+        font-weight:700;
+        cursor:pointer;
+        transition:transform .3s,box-shadow .3s;
+        position:relative;
+        overflow:hidden;
+        will-change:transform;
+    }
+
+    .stackly-contact-btn:hover{
+        box-shadow:0 14px 34px rgba(255,194,75,.4);
+    }
+
+    .stackly-contact-btn.stackly-contact-indigo{
+        background:var(--indigo);
+        color:#fff!important;
+    }
+
+    .stackly-contact-btn.stackly-contact-indigo:hover{
+        box-shadow:0 14px 34px rgba(91,77,255,.4);
+    }
+
+    .stackly-contact-btn.stackly-contact-small{
+        padding:.6rem 1.2rem;
+        font-size:.95rem;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .stackly-contact-hero{
+        min-height:100svh;
+        background:var(--ink);
+        color:#fff;
+        position:relative;
+        display:flex;
+        align-items:center;
+        overflow:hidden;
+        padding:calc(var(--nav) + 3rem) 0 5rem;
+    }
+
+    .stackly-contact-hero.stackly-contact-short{
+        min-height:68svh;
+        padding-bottom:4rem;
+    }
+
+    .stackly-contact-hero h1{
+        color:#fff;
+        max-width:14ch;
+    }
+
+    .stackly-contact-hero.stackly-contact-short h1{
+        font-size:clamp(2.4rem,6vw,5rem);
+    }
+
+    .stackly-contact-hero p.stackly-contact-lead{
+        color:#b8bde6;
+        margin:1.6rem 0 2.2rem;
+    }
+
+    .stackly-contact-hero .stackly-contact-wrap{
+        position:relative;
+        z-index:2;
+    }
+
+    .stackly-contact-hero-grid{
+        display:grid;
+        grid-template-columns:1.15fr .85fr;
+        gap:3rem;
+        align-items:center;
+    }
+
+    .stackly-contact-hero-media{
+        position:relative;
+        height:min(620px,70vh);
+    }
+
+    .stackly-contact-hero-media .stackly-contact-frame{
+        position:absolute;
+        box-shadow:0 30px 80px rgba(0,0,0,.45);
+    }
+
+    .stackly-contact-hero-media .stackly-contact-hero-main{
+        inset:0 18% 18% 0;
+    }
+
+    .stackly-contact-hero-media .stackly-contact-hero-inset{
+        width:46%;
+        height:42%;
+        right:0;
+        bottom:0;
+        border:6px solid var(--ink);
+    }
+
+    .stackly-contact-chip{
+        position:absolute;
+        z-index:3;
+        background:#fff;
+        color:var(--ink);
+        padding:.7rem 1.1rem;
+        border-radius:16px;
+        font-weight:700;
+        font-size:.92rem;
+        box-shadow:0 16px 40px rgba(0,0,0,.3);
+        display:flex;
+        gap:.6rem;
+        align-items:center;
+    }
+
+    .stackly-contact-chip b{
+        width:10px;
+        height:10px;
+        border-radius:50%;
+        background:#2ecc71;
+        box-shadow:0 0 0 6px rgba(46,204,113,.25);
+    }
+
+    .stackly-contact-chip.stackly-contact-chip-a{
+        left:-4%;
+        bottom:14%;
+    }
+
+    /* ---------- MEDIA ---------- */
+
+    .stackly-contact-frame{
+        position:relative;
+        overflow:hidden;
+        border-radius:var(--r);
+        background:linear-gradient(135deg,var(--ink2),var(--indigo));
+    }
+
+    .stackly-contact-frame img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        transform:scale(1.18);
+        will-change:transform;
+    }
+
+    /* ---------- GRIDS/CARDS ---------- */
+
+    .stackly-contact-grid{
+        display:grid;
+        gap:1.6rem;
+    }
+
+    .stackly-contact-cols-2{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stackly-contact-split{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:clamp(2rem,6vw,6rem);
+        align-items:center;
+    }
+
+    .stackly-contact-card{
+        background:#fff;
+        border:1px solid var(--line);
+        border-radius:var(--r);
+        padding:2rem;
+        transition:transform .4s,box-shadow .4s,border-color .4s;
+        transform-style:preserve-3d;
+    }
+
+    .stackly-contact-card:hover{
+        box-shadow:0 30px 60px rgba(15,18,38,.12);
+        border-color:transparent;
+    }
+
+    .stackly-contact-card p{
+        color:var(--muted);
+        margin-top:.6rem;
+    }
+
+    /* ---------- FAQ ---------- */
+
+    .stackly-contact-faq details{
+        border-bottom:1px solid var(--line);
+        padding:1.3rem 0;
+    }
+
+    .stackly-contact-faq summary{
+        cursor:pointer;
+        font:700 1.2rem var(--head);
+        color:var(--ink);
+        list-style:none;
+        display:flex;
+        justify-content:space-between;
+        gap:1rem;
+    }
+
+    .stackly-contact-faq summary::after{
+        content:"+";
+        font-size:1.6rem;
+        line-height:1;
+        transition:transform .3s;
+    }
+
+    .stackly-contact-faq details[open] summary::after{
+        transform:rotate(45deg);
+    }
+
+    .stackly-contact-faq p{
+        padding-top:.8rem;
+        color:var(--muted);
+        max-width:70ch;
+    }
+
+    /* ---------- BLOG / PROJECTS ---------- */
+
+    .stackly-contact-is-hidden{
+        display:none!important;
+    }
+
+    /* ---------- FORMS ---------- */
+
+    .stackly-contact-form{
+        display:grid;
+        gap:1.1rem;
+    }
+
+    .stackly-contact-field{
+        display:grid;
+        gap:.4rem;
+    }
+
+    .stackly-contact-field label{
+        font-weight:600;
+        color:var(--ink);
+        font-size:.95rem;
+    }
+
+    .stackly-contact-field input,
+    .stackly-contact-field select,
+    .stackly-contact-field textarea{
+        padding:.95rem 1.1rem;
+        border-radius:14px;
+        border:1.5px solid var(--line);
+        background:#fff;
+        transition:border-color .3s,box-shadow .3s;
+        width:100%;
+    }
+
+    .stackly-contact-field input:focus,
+    .stackly-contact-field select:focus,
+    .stackly-contact-field textarea:focus{
+        outline:0;
+        border-color:var(--indigo);
+        box-shadow:0 0 0 4px rgba(91,77,255,.15);
+    }
+
+    .stackly-contact-field textarea{
+        min-height:140px;
+        resize:vertical;
+    }
+
+    .stackly-contact-row2{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:1.1rem;
+    }
+
+    .stackly-contact-msg{
+        padding:.9rem 1.1rem;
+        border-radius:14px;
+        font-weight:600;
+        display:none;
+    }
+
+    .stackly-contact-msg.stackly-contact-is-ok{
+        display:block;
+        background:rgba(46,204,113,.14);
+        color:#178a4c;
+    }
+
+    .stackly-contact-msg.stackly-contact-is-error{
+        display:block;
+        background:rgba(255,107,139,.16);
+        color:#c0304f;
+    }
+
+    .stackly-contact-info-list li{
+        display:flex;
+        gap:1rem;
+        padding:1.1rem 0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .stackly-contact-info-list li span:first-child{
+        font-size:1.5rem;
+    }
+
+    .stackly-contact-map{
+        border:0;
+        width:100%;
+        height:100%;
+        min-height:380px;
+        border-radius:var(--r);
+        filter:saturate(.8);
+    }
+
+    /* ---------- CTA + FOOTER ---------- */
+
+    .stackly-contact-sf{
+        background:var(--ink);
+        color:#a9aed6;
+        padding:5rem 0 2rem;
+    }
+
+    .stackly-contact-sf-main{
+        display:grid;
+        grid-template-columns:1.5fr 1fr 1fr 1.3fr;
+        gap:2.5rem;
+    }
+
+    .stackly-contact-sf h4{
+        color:#fff;
+        font-size:1.1rem;
+        margin-bottom:1rem;
+    }
+
+    .stackly-contact-sf li{
+        margin:.5rem 0;
+    }
+
+    .stackly-contact-sf a:hover{
+        color:var(--sun);
+    }
+
+    /* ---------- MEDIA QUERIES ---------- */
+
+    @media (max-width:1100px){
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr 1fr;
+        }
+
+        .stackly-contact-hero-grid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-contact-hero-media{
+            height:420px;
+        }
+    }
+
+    @media (max-width:900px){
+        .stackly-contact-burger{
+            display:block;
+        }
+
+        .stackly-contact-main-nav{
+            position:fixed;
+            inset:var(--nav) 0 auto 0;
+            background:var(--ink);
+            flex-direction:column;
+            align-items:flex-start;
+            padding:1.6rem 6%;
+            gap:1.1rem;
+            transform:translateY(-130%);
+            transition:transform .5s cubic-bezier(.2,.8,.2,1);
+            box-shadow:0 30px 60px rgba(0,0,0,.4);
+            max-height:calc(100vh - var(--nav));
+            overflow:auto;
+        }
+
+        .stackly-contact-main-nav.stackly-contact-is-open{
+            transform:none;
+        }
+
+        .stackly-contact-split{
+            grid-template-columns:1fr;
+        }
+    }
+
+    @media (max-width:640px){
+        :root{
+            --nav:80px;
+        }
+
+        body{
+            font-size:1rem;
+        }
+
+        .stackly-contact-cols-2,
+        .stackly-contact-row2,
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-contact-hero{
+            padding-top:calc(var(--nav) + 1.5rem);
+        }
+
+        .stackly-contact-hero-media{
+            height:340px;
+        }
+
+        .stackly-contact-chip{
+            font-size:.8rem;
+            padding:.5rem .8rem;
+        }
+    }
+
+    @media (prefers-reduced-motion:reduce){
+        *{
+            animation:none!important;
+            transition:none!important;
+        }
+
+        html{
+            scroll-behavior:auto;
+        }
+    }
+
+    a.stackly-contact-card{
+        display:block;
+    }
+
+    .stackly-contact-hero.stackly-contact-short .stackly-contact-hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stackly-contact-hero.stackly-contact-short p.stackly-contact-lead{
+        max-width:56ch;
+    }
+
+    .stackly-contact-hero.stackly-contact-short .stackly-contact-hero-grid{
+        grid-template-columns:1.1fr .9fr;
+    }
+
+    .stackly-contact-hero.stackly-contact-short .stackly-contact-hero-media{
+        height:min(420px,50vh);
+    }
+
+    .stackly-contact-hero.stackly-contact-short h1{
+        max-width:16ch;
+    }
+
+    .stackly-contact-faq .stackly-contact-split>h2{
+        position:sticky;
+        top:calc(var(--nav) + 1.5rem);
+    }
+
+    @media (max-width:1100px){
+        .stackly-contact-hero.stackly-contact-short .stackly-contact-hero-grid{
+            grid-template-columns:1fr;
+        }
+
+        .stackly-contact-hero.stackly-contact-short .stackly-contact-hero-media{
+            height:300px;
+        }
+    }
+
+    /* ---------- STATIC VERSION: NO MOTION, TIDY ALIGNMENT ---------- */
+
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+
+    .stackly-contact-frame img{
+        transform:none!important;
+    }
+
+    .stackly-contact-hero{
+        background:radial-gradient(60% 70% at 15% 10%,rgba(91,77,255,.55),transparent 60%),radial-gradient(50% 60% at 90% 30%,rgba(56,212,255,.3),transparent 60%),radial-gradient(40% 50% at 50% 100%,rgba(255,107,139,.25),transparent 60%),var(--ink);
+    }
+
+    .stackly-contact-site-header .stackly-contact-wrap,
+    .stackly-contact-main-nav{
+        align-items:center;
+    }
+
+    .stackly-contact-grid>.stackly-contact-card{
+        height:100%;
+    }
+
+    .stackly-contact-hero-grid>div:first-child{
+        align-self:center;
+    }
+
+    .stackly-contact-sf-main>div{
+        min-width:0;
+    }
+
+    /* ---------- FOOTER (REFERENCE DESIGN) ---------- */
+
+    .stackly-contact-sf{
+        background:radial-gradient(60% 80% at 85% 60%,rgba(91,77,255,.18),transparent 65%),#0b0a1c;
+        color:#b4b8dc;
+        padding:4.5rem 0 0;
+    }
+
+    .stackly-contact-sf-main{
+        display:grid;
+        grid-template-columns:1.35fr 1fr 1fr 1fr 1.25fr;
+        gap:2.5rem;
+        padding-bottom:3rem;
+    }
+
+    .stackly-contact-sf-brand p{
+        margin:1.2rem 0 1.6rem;
+        max-width:36ch;
+        line-height:1.9;
+        color:#a9aed6;
+    }
+
+    .stackly-contact-sf-socials{
+        display:flex;
+        gap:.7rem;
+        flex-wrap:wrap;
+    }
+
+    .stackly-contact-sf-socials a{
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        color:var(--sky);
+        background:rgba(255,255,255,.04);
+        border:1px solid rgba(255,255,255,.14);
+    }
+
+    .stackly-contact-sf-socials a:hover{
+        background:var(--sky);
+        color:var(--ink);
+    }
+
+    .stackly-contact-sf h4{
+        font:700 1.2rem var(--head);
+        letter-spacing:.12em;
+        text-transform:uppercase;
+        color:var(--sky);
+        margin-bottom:2rem;
+        padding-bottom:1rem;
+        position:relative;
+    }
+
+    .stackly-contact-sf h4::after{
+        content:"";
+        position:absolute;
+        left:0;
+        bottom:0;
+        width:40px;
+        height:3px;
+        border-radius:3px;
+        background:var(--sky);
+    }
+
+    .stackly-contact-sf-links li,
+    .stackly-contact-sf-contact li{
+        margin:0 0 1.1rem;
+    }
+
+    .stackly-contact-sf-links a{
+        display:flex;
+        align-items:center;
+        gap:.8rem;
+        color:#e8eaff;
+        font-size:1.05rem;
+    }
+
+    .stackly-contact-sf-links a::before{
+        content:"";
+        width:8px;
+        height:8px;
+        border-top:2px solid var(--sky);
+        border-right:2px solid var(--sky);
+        transform:rotate(45deg);
+        flex:none;
+        margin-right:.3rem;
+    }
+
+    .stackly-contact-sf-links a:hover,
+    .stackly-contact-sf-contact a:hover{
+        color:var(--sky);
+    }
+
+    .stackly-contact-sf-contact li{
+        display:flex;
+        align-items:center;
+        gap:1rem;
+        color:#e8eaff;
+        font-size:1.05rem;
+    }
+
+    .stackly-contact-sf-contact a{
+        color:#e8eaff;
+    }
+
+    .stackly-contact-sf-bottom{
+        border-top:1px solid rgba(255,255,255,.1);
+        padding:1.6rem 0;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:1rem;
+        color:#a9aed6;
+    }
+
+    .stackly-contact-pay{
+        display:flex;
+        align-items:center;
+        gap:.9rem;
+        flex-wrap:wrap;
+    }
+
+    .stackly-contact-secure{
+        display:inline-flex;
+        align-items:center;
+        gap:.6rem;
+        padding-right:1.2rem;
+        margin-right:.3rem;
+        border-right:1px solid rgba(255,255,255,.14);
+    }
+
+    .stackly-contact-badge-pay{
+        min-width:80px;
+        height:36px;
+        padding:0 1rem;
+        border-radius:8px;
+        background:#fff;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        font:italic 800 .95rem var(--body);
+        color:#1a1f71;
+    }
+
+    .stackly-contact-badge-pay.stackly-contact-mc i{
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        background:#eb001b;
+    }
+
+    .stackly-contact-badge-pay.stackly-contact-mc i+i{
+        background:#f79e1b;
+        margin-left:-7px;
+    }
+
+    .stackly-contact-badge-pay.stackly-contact-rupay{
+        font-style:normal;
+        color:#1d4a9c;
+    }
+
+    .stackly-contact-badge-pay.stackly-contact-rupay b{
+        color:#f26522;
+    }
+
+    .stackly-contact-badge-pay.stackly-contact-upi{
+        color:#444;
+    }
+
+    @media (max-width:1100px){
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr 1fr 1fr;
+        }
+
+        .stackly-contact-sf-brand{
+            grid-column:1/-1;
+        }
+
+        .stackly-contact-sf-brand p{
+            max-width:60ch;
+        }
+    }
+
+    @media (max-width:640px){
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr 1fr;
+            gap:2rem 1.2rem;
+        }
+
+        .stackly-contact-sf-brand,
+        .stackly-contact-sf-main>.stackly-contact-sf-col:last-child{
+            grid-column:1/-1;
+        }
+
+        .stackly-contact-sf-bottom{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        .stackly-contact-secure{
+            border:0;
+            padding:0;
+            width:100%;
+        }
+
+        .stackly-contact-sf h4{
+            letter-spacing:.08em;
+            font-size:1.05rem;
+        }
+    }
+
+    .stackly-contact-sf-main{
+        grid-template-columns:1.7fr 1fr 1fr 1fr 1.3fr;
+    }
+
+    .stackly-contact-sf-socials{
+        gap:.5rem;
+        flex-wrap:nowrap;
+    }
+
+    .stackly-contact-sf-socials a{
+        width:44px;
+        height:44px;
+        flex:none;
+    }
+
+    @media (max-width:1100px){
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr 1fr 1fr;
+        }
+    }
+
+    @media (max-width:640px){
+        .stackly-contact-sf-main{
+            grid-template-columns:1fr 1fr;
+        }
+
+        .stackly-contact-sf-socials{
+            flex-wrap:wrap;
+        }
+    }
+
+    /* ---------- FOOTER: SITE THEME COLOURS (INK + AMBER) ---------- */
+
+    .stackly-contact-sf{
+        background:var(--ink);
+        color:#a9aed6;
+    }
+
+    .stackly-contact-sf h4{
+        color:#fff;
+    }
+
+    .stackly-contact-sf h4::after{
+        background:var(--sun);
+    }
+
+    .stackly-contact-sf-socials a{
+        color:var(--sun);
+        background:rgba(255,255,255,.05);
+        border-color:rgba(255,255,255,.15);
+    }
+
+    .stackly-contact-sf-socials a:hover{
+        background:var(--sun);
+        color:var(--ink);
+    }
+
+    .stackly-contact-sf-links a::before{
+        border-color:var(--sun);
+    }
+
+    .stackly-contact-sf-links a:hover,
+    .stackly-contact-sf-contact a:hover{
+        color:var(--sun);
+    }
+
+    .stackly-contact-sf-bottom{
+        border-top-color:rgba(255,255,255,.12);
+    }
+
+    /* ---------- IN-PAGE SELECT DROPDOWN: ALWAYS STAYS INSIDE THE SCREEN ---------- */
+
+    .stackly-contact-dd{
+        position:fixed;
+        z-index:99999;
+        margin:0;
+        padding:6px;
+        list-style:none;
+        overflow-y:auto;
+        overscroll-behavior:contain;
+        box-sizing:border-box;
+        background:#fff;
+        color:var(--ink,#0f1226);
+        border:1.5px solid var(--indigo,#5b4dff);
+        border-radius:14px;
+        box-shadow:0 18px 40px rgba(15,18,38,.18);
+        font:inherit;
+        font-size:15px;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .stackly-contact-dd li{
+        padding:10px 12px;
+        border-radius:9px;
+        cursor:pointer;
+        overflow-wrap:anywhere;
+    }
+
+    .stackly-contact-dd li.stackly-contact-is-hl{
+        background:rgba(91,77,255,.12);
+    }
+
+    .stackly-contact-dd li[aria-selected="true"]{
+        color:var(--indigo,#5b4dff);
+        font-weight:600;
+    }
+
+    .stackly-contact-dd li[aria-disabled="true"]{
+        opacity:.45;
+        cursor:not-allowed;
+    }
+</style>
+</head>
+<body>
+
+    <!-- ============ HEADER ============ -->
+
+    <header
+        class="stackly-contact-site-header"
+        id="top"
+    >
+        <div class="stackly-contact-wrap">
+            <a
+                href="index.html"
+                class="stackly-contact-logo"
+                aria-label="Stackly home"
+            ><img src="./stackly.png" alt="Stackly" /></a>
+
+            <button
+                class="stackly-contact-burger"
+                id="burger"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="mainNav"
+            ><span></span><span></span></button>
+
+            <nav
+                class="stackly-contact-main-nav"
+                id="mainNav"
+                aria-label="Primary"
+            >
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html">Projects</a>
+                <a href="blog.html">Blog</a>
+
+                <a
+                    href="contact.html"
+                    class="stackly-contact-is-active"
+                >Contact</a>
+
+                <a
+                    class="stackly-contact-btn stackly-contact-small"
+                    id="accountBtn"
+                    href="login.html"
+                >Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============ HERO ============ -->
+
+        <section class="stackly-contact-hero stackly-contact-short">
+            <div class="stackly-contact-wrap stackly-contact-hero-grid">
+                <div>
+                    <span class="stackly-contact-tag"><i></i> Contact</span>
+                    <h1>Let us show you around.</h1>
+
+                    <p class="stackly-contact-lead">
+                        Book a tour, ask about pricing or tell us what your team needs. We reply within one working day.
+                    </p>
+                </div>
+
+                <div class="stackly-contact-hero-media">
+                    <div class="stackly-contact-frame stackly-contact-hero-main">
+                        <img
+                            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            srcset="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                            sizes="45vw"
+                            alt=""
+                            decoding="async"
+                            onerror="this.style.visibility='hidden'"
+                        />
+                    </div>
+
+                    <div class="stackly-contact-frame stackly-contact-hero-inset">
+                        <img
+                            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=3840&amp;q=80"
+                            srcset="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=1280&amp;q=80 1280w, https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=2560&amp;q=80 2560w, https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&amp;fit=crop&amp;w=3840&amp;q=80 3840w"
+                            sizes="30vw"
+                            alt=""
+                            decoding="async"
+                            onerror="this.style.visibility='hidden'"
+                        />
+                    </div>
+
+                    <div class="stackly-contact-chip stackly-contact-chip-a"><b></b> Tours daily, 10 am to 6 pm</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTACT FORM &amp; DETAILS ============ -->
+
+        <section class="stackly-contact-section">
+            <div
+                class="stackly-contact-wrap stackly-contact-split"
+                style="align-items:start"
+            >
+                <form
+                    class="stackly-contact-form stackly-contact-card"
+                    data-demo-form=""
+                    style="padding:clamp(1.4rem,3vw,2.4rem)"
+                    id="contactForm"
+                >
+                    <h2 style="font-size:2rem">Send us a message</h2>
+
+                    <div class="stackly-contact-row2">
+                        <div class="stackly-contact-field">
+                            <label for="contactName">Full name</label>
+
+                            <input
+                                id="contactName"
+                                required
+                                autocomplete="name"
+                            />
+                        </div>
+
+                        <div class="stackly-contact-field">
+                            <label for="contactEmail">Email</label>
+
+                            <input
+                                id="contactEmail"
+                                type="email"
+                                required
+                                autocomplete="email"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="stackly-contact-row2">
+                        <div class="stackly-contact-field">
+                            <label for="contactPhone">Phone</label>
+
+                            <input
+                                id="contactPhone"
+                                type="tel"
+                                autocomplete="tel"
+                            />
+                        </div>
+
+                        <div class="stackly-contact-field">
+                            <label for="contactInterest">I am interested in</label>
+
+                            <select id="contactInterest">
+                                <option>Hot desk</option>
+                                <option>Dedicated desk</option>
+                                <option>Private office</option>
+                                <option>Meeting room</option>
+                                <option>Event hall</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="stackly-contact-field">
+                        <label for="contactMessage">Message</label>
+
+                        <textarea
+                            id="contactMessage"
+                            required
+                            placeholder="Team size, start date and anything else we should know"
+                        ></textarea>
+                    </div>
+
+                    <button
+                        class="stackly-contact-btn stackly-contact-indigo"
+                        type="submit"
+                    >Send message</button>
+
+                    <p
+                        class="stackly-contact-msg"
+                        id="formMsg"
+                    ></p>
+                </form>
+
+                <div>
+                    <ul class="stackly-contact-info-list">
+                        <li>
+                            <span>📍</span>
+                            <div><strong>Address</strong><br />Stackly Cowork, MMR Complex, Salem, Tamil Nadu 636016</div>
+                        </li>
+
+                        <li>
+                            <span>📞</span>
+                            <div><strong>Phone</strong><br /><a href="tel:+910000000000">+91 00000 00000</a></div>
+                        </li>
+
+                        <li>
+                            <span>✉️</span>
+                            <div><strong>Email</strong><br /><a href="mailto:hello@stackly.in">hello@stackly.in</a></div>
+                        </li>
+
+                        <li>
+                            <span>🕒</span>
+                            <div><strong>Hours</strong><br />Mon–Sat 8 am – 10 pm. Members 24/7.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MAP &amp; DIRECTIONS ============ -->
+
+        <section class="stackly-contact-section stackly-contact-mist">
+            <div
+                class="stackly-contact-wrap stackly-contact-grid stackly-contact-cols-2"
+                style="align-items:stretch"
+            >
+                <iframe
+                    class="stackly-contact-map"
+                    title="Map of Salem"
+                    loading="lazy"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=78.10%2C11.62%2C78.19%2C11.70&amp;layer=mapnik"
+                ></iframe>
+
+                <div class="stackly-contact-card">
+                    <h3>Getting here</h3>
+
+                    <p>
+                        Ten minutes from Salem Junction by auto. Free covered parking for bikes and cars. Reception is on the ground floor, just past the café.
+                    </p>
+
+                    <h3 style="margin-top:1.6rem">First visit?</h3>
+                    <p>Ask for Nithya at reception. She will start your tour and your first free chai.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ FAQ ============ -->
+
+        <section class="stackly-contact-section stackly-contact-faq">
+            <div
+                class="stackly-contact-wrap stackly-contact-split"
+                style="align-items:start"
+            >
+                <h2>Before you write</h2>
+
+                <div>
+                    <details open>
+                        <summary>How fast will you reply?</summary>
+                        <p>Within one working day, usually within a few hours.</p>
+                    </details>
+
+                    <details>
+                        <summary>Can I visit without booking?</summary>
+                        <p>Yes, but a booked tour guarantees someone is free to show you around.</p>
+                    </details>
+
+                    <details>
+                        <summary>Do you offer day passes?</summary>
+                        <p>Yes, ₹499 per day with Wi-Fi, tea and coffee.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ FOOTER ============ -->
+
+    <footer
+        class="stackly-contact-sf"
+        id="contactInfo"
+    >
+        <div class="stackly-contact-wrap">
+            <div class="stackly-contact-sf-main">
+                <div class="stackly-contact-sf-brand">
+                    <a
+                        href="index.html"
+                        class="stackly-contact-logo"
+                        aria-label="Stackly home"
+                    ><img src="./stackly.png" alt="Stackly" /></a>
+
+                    <p>
+                        Stackly Cowork gives freelancers, startups and growing teams hot desks, private offices and meeting rooms in Salem, with fast Wi-Fi and a friendly community.
+                    </p>
+
+                    <div class="stackly-contact-sf-socials">
+                        <a
+                            href="error.html"
+                            aria-label="Facebook"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="LinkedIn"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 9h4v11H4zM6 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v2c.7-1.3 2-2.2 4-2.2 3 0 4 2 4 5V20h-4v-5.5c0-1.5-.6-2.3-1.8-2.3-1.3 0-2.2.9-2.2 2.5V20h-4z" transform="scale(.9) translate(1 1)"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="Twitter"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.3 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5 0 2 1.4 3.7 3.3 4.1-.6.2-1.2.2-1.8.1.5 1.6 2 2.8 3.8 2.8A8.3 8.3 0 0 1 2 18.3 11.7 11.7 0 0 0 8.3 20c7.5 0 11.7-6.3 11.7-11.7v-.5c.8-.6 1.5-1.3 2-2z"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="Instagram"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg></a>
+
+                        <a
+                            href="error.html"
+                            aria-label="YouTube"
+                        ><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg></a>
+                    </div>
+                </div>
+
+                <div class="stackly-contact-sf-col">
+                    <h4>Explore</h4>
+
+                    <ul class="stackly-contact-sf-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-contact-sf-col">
+                    <h4>Spaces</h4>
+
+                    <ul class="stackly-contact-sf-links">
+                        <li><a href="services.html">Hot Desk</a></li>
+                        <li><a href="services.html">Dedicated Desk</a></li>
+                        <li><a href="services.html">Private Office</a></li>
+                        <li><a href="services.html">Meeting Rooms</a></li>
+                        <li><a href="services.html">Event Hall</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-contact-sf-col">
+                    <h4>Account</h4>
+
+                    <ul class="stackly-contact-sf-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="login.html?tab=signup">Create Account</a></li>
+                        <li><a href="user-dashboard.html">My Dashboard</a></li>
+                        <li><a href="admin-dashboard.html">Admin Panel</a></li>
+                        <li><a href="contact.html">Book a Tour</a></li>
+                    </ul>
+                </div>
+
+                <div class="stackly-contact-sf-col">
+                    <h4>Get in touch</h4>
+
+                    <ul class="stackly-contact-sf-contact">
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><a href="mailto:hello@stackly.in">hello@stackly.in</a></li>
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A15 15 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+910000000000">+91 00000 00000</a></li>
+                        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s7-6.1 7-11a7 7 0 0 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>MMR Complex, Salem, Tamil Nadu, India</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stackly-contact-sf-bottom">
+                <span>© <span id="year">2026</span> Stackly Cowork. All rights reserved.</span>
+
+                <div class="stackly-contact-pay">
+                    <span class="stackly-contact-secure"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> Secure Payments</span>
+                    <span class="stackly-contact-badge-pay stackly-contact-visa">VISA</span>
+                    <span class="stackly-contact-badge-pay stackly-contact-mc"><i></i><i></i></span>
+                    <span class="stackly-contact-badge-pay stackly-contact-rupay">Ru<b>Pay</b></span>
+                    <span class="stackly-contact-badge-pay stackly-contact-upi">UPI</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+(function(){
+  'use strict';
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  /* ---------- Header: solid background on scroll + mobile menu ---------- */
+  var header = $('.stackly-contact-site-header');
+  var onScroll = function(){ header.classList.toggle('stackly-contact-is-solid', window.scrollY > 60); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  var burger = $('#burger'), nav = $('#mainNav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('stackly-contact-is-open');
+    burger.classList.toggle('stackly-contact-is-open', open);
+    burger.setAttribute('aria-expanded', open);
+  });
+  $$('#mainNav a').forEach(function(a){
+    a.addEventListener('click', function(){
+      nav.classList.remove('stackly-contact-is-open'); burger.classList.remove('stackly-contact-is-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- Account button: Login / My dashboard (demo session) ---------- */
+  var account = $('#accountBtn');
+  try {
+    var users = JSON.parse(localStorage.getItem('stackly_users')) || [];
+    var session = JSON.parse(localStorage.getItem('stackly_session'));
+    var email = session && String(session.email || '').trim().toLowerCase();
+    var user = email && users.filter(function(u){ return u.email === email; })[0];
+    if(user){
+      account.textContent = 'My dashboard';
+      account.setAttribute('href', user.role === 'admin' ? 'admin-dashboard.html' : 'user-dashboard.html');
+    }
+  } catch(e) {}
+
+  /* ---------- Footer year ---------- */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ---------- Contact form (demo) ---------- */
+  var form = $('#contactForm'), msg = $('#formMsg');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    msg.textContent = form.getAttribute('data-ok') || 'Thanks! We will get back to you within one working day.';
+    msg.className = 'stackly-contact-msg stackly-contact-is-ok';
+    form.reset();
+  });
+})();
+</script>
+
+<script>
+/* ---------- Custom select dropdown ----------
+   In-page replacement for the native <select> popup so the list never leaves the screen. */
+(function () {
+  var list = null, cur = null, hl = -1;
+
+  function enabled(o) { return !o.disabled && !o.hidden; }
+
+  function close() {
+    if (list) { list.remove(); list = null; }
+    if (cur) { cur.setAttribute('aria-expanded', 'false'); cur = null; }
+    hl = -1;
+  }
+
+  function place() {
+    if (!list || !cur) return;
+    var r = cur.getBoundingClientRect(), vw = document.documentElement.clientWidth, vh = window.innerHeight, m = 8;
+    var w = Math.min(Math.max(r.width, 160), vw - m * 2);
+    var left = Math.min(Math.max(r.left, m), vw - w - m);
+    list.style.width = w + 'px';
+    list.style.left = left + 'px';
+    list.style.maxHeight = '';
+    var below = vh - r.bottom - m - 4, above = r.top - m - 4, h = list.scrollHeight + 2;
+    if (h <= below || below >= above) {
+      list.style.top = (r.bottom + 4) + 'px';
+      list.style.bottom = 'auto';
+      list.style.maxHeight = Math.max(110, below) + 'px';
+    } else {
+      list.style.top = 'auto';
+      list.style.bottom = (vh - r.top + 4) + 'px';
+      list.style.maxHeight = Math.max(110, above) + 'px';
+    }
+  }
+
+  function setHl(i, scroll) {
+    var items = list ? list.children : [];
+    if (hl > -1 && items[hl]) items[hl].classList.remove('stackly-contact-is-hl');
+    hl = i;
+    if (items[i]) {
+      items[i].classList.add('stackly-contact-is-hl');
+      if (scroll !== false) items[i].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function pick(i) {
+    if (!cur) return;
+    var sel = cur, o = sel.options[i];
+    if (!o || !enabled(o)) return;
+    var changed = sel.selectedIndex !== i;
+    sel.selectedIndex = i;
+    close();
+    sel.focus();
+    if (changed) {
+      sel.dispatchEvent(new Event('input', { bubbles: true }));
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  }
+
+  function open(sel) {
+    if (sel.disabled) return;
+    if (cur === sel) { close(); return; }
+    close();
+    cur = sel;
+    sel.setAttribute('aria-expanded', 'true');
+    list = document.createElement('ul');
+    list.className = 'stackly-contact-dd';
+    list.setAttribute('role', 'listbox');
+    Array.prototype.forEach.call(sel.options, function (o, i) {
+      var li = document.createElement('li');
+      li.setAttribute('role', 'option');
+      li.textContent = o.textContent;
+      if (i === sel.selectedIndex) li.setAttribute('aria-selected', 'true');
+      if (!enabled(o)) li.setAttribute('aria-disabled', 'true');
+      if (o.hidden) li.style.display = 'none';
+      li.addEventListener('mouseenter', function () { if (enabled(o)) setHl(i, false); });
+      li.addEventListener('mousedown', function (e) { e.preventDefault(); });
+      li.addEventListener('click', function () { pick(i); });
+      list.appendChild(li);
+    });
+    document.body.appendChild(list);
+    place();
+    setHl(Math.max(sel.selectedIndex, 0));
+  }
+
+  function eligible(el) {
+    return el && el.tagName === 'SELECT' && !el.multiple && !(el.size > 1);
+  }
+
+  /* block the native popup, open ours instead */
+  function block(e) {
+    var s = e.target.closest ? e.target.closest('select') : null;
+    if (!eligible(s)) return;
+    e.preventDefault();
+    if (e.type === 'mousedown' || e.type === 'pointerdown') { s.focus(); }
+    if (e.type === 'click') open(s);
+  }
+  document.addEventListener('pointerdown', block, true);
+  document.addEventListener('mousedown', block, true);
+  document.addEventListener('click', block, true);
+
+  document.addEventListener('keydown', function (e) {
+    var s = e.target;
+    if (!eligible(s)) return;
+    if (!list || cur !== s) {
+      if (e.key === 'Enter' || e.key === ' ' || (e.altKey && e.key === 'ArrowDown')) { e.preventDefault(); open(s); }
+      return;
+    }
+    var n = s.options.length, i;
+    if (e.key === 'Escape') { e.preventDefault(); close(); }
+    else if (e.key === 'Tab') { close(); }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(hl); }
+    else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      var step = e.key === 'ArrowDown' ? 1 : -1;
+      for (i = hl + step; i >= 0 && i < n; i += step) { if (enabled(s.options[i])) { setHl(i); break; } }
+    } else if (e.key === 'Home' || e.key === 'End') {
+      e.preventDefault();
+      i = e.key === 'Home' ? 0 : n - 1;
+      while (i >= 0 && i < n && !enabled(s.options[i])) i += e.key === 'Home' ? 1 : -1;
+      if (i >= 0 && i < n) setHl(i);
+    }
+  }, true);
+
+  document.addEventListener('pointerdown', function (e) {
+    if (!list) return;
+    if (list.contains(e.target) || e.target === cur) return;
+    close();
+  }, true);
+  window.addEventListener('resize', close);
+  window.addEventListener('scroll', function (e) {
+    if (list && !list.contains(e.target)) close();
+  }, true);
+  window.addEventListener('blur', close);
+})();
+</script>
+
+</body>
+</html>
